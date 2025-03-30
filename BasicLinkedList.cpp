@@ -5,6 +5,13 @@ class Node{
 public:
     int value;
     Node* next;
+
+    Node(){
+    }
+
+    Node(int value){
+        this->value = value;
+    }
 };
 
 
@@ -21,6 +28,7 @@ void printLink(Node node){
     
 }
 
+
 int main(){
     
     //Dynamic Allocation nodes
@@ -36,8 +44,17 @@ int main(){
     node2->next = NULL;
 
     printLink(*node1);
+    cout<<endl;
 
-    Node node3, node4;
+    Node node3(3);
+    Node node4(4);
+
+    //The address needs to passed as node4 was created non dynamically
+    node3.next = &node4;
+    node4.next = NULL;
+
+    printLink(node3);
+    
     Node nodeArray [5];
 
     return 0; 
